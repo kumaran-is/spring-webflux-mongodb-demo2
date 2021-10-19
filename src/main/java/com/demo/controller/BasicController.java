@@ -22,8 +22,9 @@ public class BasicController {
 	                .log();
 
 	    }
-
-	    @GetMapping(value = "/fluxstream", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+	   
+	      @GetMapping(value = "/flux", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+	   // @GetMapping(value = "/fluxstream", produces = MediaType.APPLICATION_NDJSON_VALUE)
 	    public Flux<Long> returnFluxStream(){
 
 	        return Flux.interval(Duration.ofSeconds(1))
