@@ -117,7 +117,7 @@ public class BasicControllerTest {
 	  @Test
 	    public void mono(){
 
-	        Integer expectedValue = new Integer(1);
+	        Integer expectedValue =  Integer.valueOf(1);
 
 	        webTestClient.get().uri("/api/v1/basic/mono")
 	                .accept(MediaType.APPLICATION_JSON)
