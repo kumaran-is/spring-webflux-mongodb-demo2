@@ -113,6 +113,22 @@ public class BasicControllerTest {
 
 
 	    }
+	  
+	  @Test
+	    public void mono(){
+
+	        Integer expectedValue = new Integer(1);
+
+	        webTestClient.get().uri("/api/v1/basic/mono")
+	                .accept(MediaType.APPLICATION_JSON)
+	                .exchange()
+	                .expectStatus().isOk()
+	                .expectBody(Integer.class)
+	                .consumeWith((response) -> {
+	                    assertEquals(expectedValue, response.getResponseBody());
+	                });
+
+	    }
 
 
 }

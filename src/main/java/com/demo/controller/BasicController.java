@@ -23,7 +23,7 @@ public class BasicController {
 
 	    }
 	   
-	      @GetMapping(value = "/flux", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+	      @GetMapping(value = "/fluxstream", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
 	   // @GetMapping(value = "/fluxstream", produces = MediaType.APPLICATION_NDJSON_VALUE)
 	    public Flux<Long> returnFluxStream(){
 
