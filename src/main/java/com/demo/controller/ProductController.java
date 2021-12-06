@@ -2,6 +2,7 @@ package com.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,14 +19,16 @@ import com.demo.dto.ProductDTO;
 import com.demo.service.ProductService;
 
 @RestController
-@RequestMapping("/api/v1/products")
+// @RequestMapping("/api/v1/products")
+@RequestMapping(value = "/api/v1/products", produces = MediaType.APPLICATION_NDJSON_VALUE)
 public class ProductController {
+
 	
 	 @Autowired
 	 private ProductService service;
 	 
     //@GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-	 //@GetMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+	 //@GetMapping(produces = MediaType.APPLICATION_NDJSON_VALUE)
 	@GetMapping
 	public Flux<ProductDTO> getProducts(){
 	    return service.getProducts();

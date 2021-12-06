@@ -10,10 +10,10 @@ import reactor.core.publisher.Mono;
 import java.time.Duration;
 
 @RestController
-@RequestMapping("/api/v1/basic")
+@RequestMapping(value = "/api/v1/basic", produces = MediaType.APPLICATION_NDJSON_VALUE)
 public class BasicController {
 	
-	   //  @GetMapping(value = "/flux", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+	   //  @GetMapping(value = "/flux", produces = MediaType.APPLICATION_NDJSON_VALUE)
 	   @GetMapping("/flux")
 	    public Flux<Integer> returnFlux(){
 
@@ -23,8 +23,7 @@ public class BasicController {
 
 	    }
 	   
-	      @GetMapping(value = "/fluxstream", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
-	   // @GetMapping(value = "/fluxstream", produces = MediaType.APPLICATION_NDJSON_VALUE)
+	    @GetMapping(value = "/fluxstream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 	    public Flux<Long> returnFluxStream(){
 
 	        return Flux.interval(Duration.ofSeconds(1))
